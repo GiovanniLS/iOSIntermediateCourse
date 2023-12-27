@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hwa-bB-Y2q">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pokemon View Controller-->
+        <scene sceneID="ifd-Dk-mRr">
+            <objects>
+                <viewController id="Hwa-bB-Y2q" customClass="PokemonViewController" customModule="who_is_that_pokemon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i00-FZ-pAF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="sbK-ip-3PU" userLabel="Container">
+                                <rect key="frame" x="0.0" y="79" width="393" height="719"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BBd-Rv-DpC" userLabel="Header">
+                                        <rect key="frame" x="48" y="0.0" width="297.33333333333331" height="75.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Quién es este Pokémon?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzU-qk-8qA">
+                                                <rect key="frame" x="0.0" y="0.0" width="297.33333333333331" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntaje: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynl-Vr-BCf">
+                                                <rect key="frame" x="102.66666666666666" y="50" width="91.666666666666657" height="25.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CIg-4G-we9" userLabel="Pokemon">
+                                        <rect key="frame" x="69" y="146.66666666666666" width="255" height="300.33333333333337"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu" translatesAutoresizingMaskIntoConstraints="NO" id="ZSi-B9-Mfn">
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="255"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="255" id="9xF-qi-fot"/>
+                                                    <constraint firstAttribute="width" constant="255" id="IsH-Cq-ZuN"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sí, es un Pikachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-sS-IDf">
+                                                <rect key="frame" x="45.333333333333329" y="275" width="164.33333333333337" height="25.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GYt-Wf-EsS" userLabel="Buttons">
+                                        <rect key="frame" x="20" y="507" width="353" height="212"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0M9-ef-HiX">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Flaaffy">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Hwa-bB-Y2q" eventType="touchUpInside" id="OcH-CY-SoL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbn-GI-sPa">
+                                                <rect key="frame" x="0.0" y="58" width="353" height="38"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Staravia">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Hwa-bB-Y2q" eventType="touchUpInside" id="bmj-4u-VYN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8U-gV-bil">
+                                                <rect key="frame" x="0.0" y="116" width="353" height="38"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Carvanha">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Hwa-bB-Y2q" eventType="touchUpInside" id="x6J-1A-Gbg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1x-qD-sKf">
+                                                <rect key="frame" x="0.0" y="174" width="353" height="38"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Pikachu">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="Hwa-bB-Y2q" eventType="touchUpInside" id="FnH-Af-lLh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GYt-Wf-EsS" firstAttribute="leading" secondItem="sbK-ip-3PU" secondAttribute="leading" constant="20" id="CMA-SI-uhW"/>
+                                    <constraint firstAttribute="trailing" secondItem="GYt-Wf-EsS" secondAttribute="trailing" constant="20" id="wFt-g4-zO2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ec8-nB-PP0"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sbK-ip-3PU" firstAttribute="top" secondItem="ec8-nB-PP0" secondAttribute="top" constant="20" id="6cD-Vt-XnQ"/>
+                            <constraint firstItem="ec8-nB-PP0" firstAttribute="trailing" secondItem="sbK-ip-3PU" secondAttribute="trailing" id="PXX-Xu-GUO"/>
+                            <constraint firstItem="ec8-nB-PP0" firstAttribute="bottom" secondItem="sbK-ip-3PU" secondAttribute="bottom" constant="20" id="mvc-RL-0ce"/>
+                            <constraint firstItem="sbK-ip-3PU" firstAttribute="leading" secondItem="i00-FZ-pAF" secondAttribute="leading" id="qV3-wb-YLs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelMessage" destination="AwO-sS-IDf" id="ghs-v4-txs"/>
+                        <outlet property="labelScore" destination="ynl-Vr-BCf" id="6Mf-Wb-7hK"/>
+                        <outlet property="pokemonImage" destination="ZSi-B9-Mfn" id="HCY-9G-OxD"/>
+                        <outletCollection property="answerButtons" destination="0M9-ef-HiX" collectionClass="NSMutableArray" id="927-Ld-DEk"/>
+                        <outletCollection property="answerButtons" destination="Cbn-GI-sPa" collectionClass="NSMutableArray" id="PRT-Ss-5mt"/>
+                        <outletCollection property="answerButtons" destination="v8U-gV-bil" collectionClass="NSMutableArray" id="M4j-pK-wUp"/>
+                        <outletCollection property="answerButtons" destination="g1x-qD-sKf" collectionClass="NSMutableArray" id="ieG-Lw-tN7"/>
+                        <segue destination="Pv0-uV-eV3" kind="presentation" id="chi-fV-Jne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="smf-U0-Bti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.53846153846153" y="105.92417061611374"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="gAO-34-XAo">
+            <objects>
+                <viewController id="Pv0-uV-eV3" customClass="ResultsViewController" customModule="who_is_that_pokemon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Km2-iC-b9t">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xkt-il-fvg" userLabel="Container">
+                                <rect key="frame" x="0.33333333333334281" y="20" width="392.33333333333326" height="802"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡OOOPS! Perdiste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pja-Tx-C66">
+                                        <rect key="frame" x="92.666666666666686" y="0.0" width="207" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cHj-tX-QcS" userLabel="Pokemon">
+                                        <rect key="frame" x="68.666666666666686" y="165.66666666666666" width="255" height="300.33333333333337"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pika" translatesAutoresizingMaskIntoConstraints="NO" id="oLD-j5-TVT">
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="255"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="255" id="Iuh-lp-coh"/>
+                                                    <constraint firstAttribute="width" constant="255" id="fp9-da-gy7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No, es un Pikachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1A-sL-Edw">
+                                                <rect key="frame" x="41" y="275" width="173" height="25.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perdiste, tu puntaje fue de 25." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twd-D9-zm0">
+                                        <rect key="frame" x="53.333333333333343" y="601.66666666666663" width="285.66666666666663" height="25.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-pR-jx4">
+                                        <rect key="frame" x="20" y="762.66666666666663" width="352.33333333333331" height="39.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Jugar de nuevo">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dBS-pR-jx4" secondAttribute="trailing" constant="20" id="SVB-Dd-eyn"/>
+                                    <constraint firstItem="dBS-pR-jx4" firstAttribute="leading" secondItem="xkt-il-fvg" secondAttribute="leading" constant="20" id="WYR-xM-wQf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dl9-4e-hHd"/>
+                        <color key="backgroundColor" red="0.92158359290000003" green="0.92158359290000003" blue="0.92158359290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xkt-il-fvg" firstAttribute="top" secondItem="dl9-4e-hHd" secondAttribute="top" constant="20" id="LaU-YF-XwK"/>
+                            <constraint firstItem="dl9-4e-hHd" firstAttribute="bottom" secondItem="xkt-il-fvg" secondAttribute="bottomMargin" constant="20" id="bL0-7i-mm3"/>
+                            <constraint firstItem="xkt-il-fvg" firstAttribute="centerX" secondItem="Km2-iC-b9t" secondAttribute="centerX" id="qQD-4R-hbK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oru-N4-UhV"/>
+                    <connections>
+                        <outlet property="pokemonLabel" destination="M1A-sL-Edw" id="xCa-zI-LMg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws3-J8-RKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.84615384615381" y="105.92417061611374"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pika" width="158.33332824707031" height="158.33332824707031"/>
+        <image name="pikachu" width="85.333335876464844" height="85"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
