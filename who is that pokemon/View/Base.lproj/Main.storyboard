@@ -132,7 +132,7 @@
                         <outletCollection property="answerButtons" destination="Cbn-GI-sPa" collectionClass="NSMutableArray" id="PRT-Ss-5mt"/>
                         <outletCollection property="answerButtons" destination="v8U-gV-bil" collectionClass="NSMutableArray" id="M4j-pK-wUp"/>
                         <outletCollection property="answerButtons" destination="g1x-qD-sKf" collectionClass="NSMutableArray" id="ieG-Lw-tN7"/>
-                        <segue destination="Pv0-uV-eV3" kind="presentation" id="chi-fV-Jne"/>
+                        <segue destination="Pv0-uV-eV3" kind="presentation" identifier="goToResult" id="chi-fV-Jne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smf-U0-Bti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

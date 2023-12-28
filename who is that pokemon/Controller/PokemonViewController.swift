@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PokemonViewController: UIViewController {
     
@@ -14,15 +15,36 @@ class PokemonViewController: UIViewController {
     @IBOutlet var answerButtons: [UIButton]!
     @IBOutlet weak var pokemonImage: UIImageView!
     
+    lazy var pokemonManager = PokemonManager()
+    lazy var imageManager = ImageManager()
+    lazy var game = GameModel()
+    
+    var random4Pokemons: [PokemonModel] = [] {
+        didSet {
+            setButtonTitles()
+        }
+    }
+    var correctAnswer: String = ""
+    var correctAnswerImage: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelScore.text = "Puntaje: 100"
+        pokemonManager.delegate = self
+        imageManager.delegate = self
         createButtons()
+        pokemonManager.fetchPokemonApi()
+        labelMessage.text = " "
     }
 
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        print(sender.title(for: .normal)!)
+        let userAnswer = sender.title(for: .normal)!
+        if game.checkAnswer(userAnswer, correctAnswer) {
+            labelMessage.text = "Sí, es un \(userAnswer)"
+            labelScore.text = "Puntaje: \(game.score)"
+            sender.layer.borderColor = UIColor.systemGreen.cgColor
+            sender.layer.borderWidth = 2.0
+        }
     }
     
     func createButtons() {
@@ -35,5 +57,55 @@ class PokemonViewController: UIViewController {
             button.layer.cornerRadius = 10.0
         }
     }
+    
+    func setButtonTitles() {
+        for (index, button) in answerButtons.enumerated() {
+            DispatchQueue.main.async { [self] in
+                button.setTitle(random4Pokemons[safe: index]?.name.capitalized, for: .normal)
+            }
+        }
+    }
 }
 
+extension PokemonViewController: PokemonManagerDelegate {
+    func didUpdatePokemon(pokemons: [PokemonModel]) {
+        random4Pokemons = pokemons.choose(4)
+        let index = Int.random(in: 0...3)
+        let imageData = random4Pokemons[index].imageURL
+        correctAnswer = random4Pokemons[index].name
+        imageManager.fetchImage(url: imageData)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
+
+extension PokemonViewController: ImageManagerDelegate {
+    func didUpdateImage(image: ImageModel) {
+        correctAnswerImage = image.imageURL
+        DispatchQueue.main.async { [self] in
+            let url = URL(string: image.imageURL)
+            let effect = ColorControlsProcessor(brightness: -1, contrast: 1, saturation: 1, inputEV: 0)
+            pokemonImage.kf.setImage(with: url, options: [.processor(effect)])
+        }
+    }
+    
+    func didFailWithErrorImage(error: Error) {
+        print(error)
+    }
+    
+    
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    public subscript(safe index: Index) -> Iterator.Element? {
+        return (startIndex <= index && index < endIndex) ? self[index] : nil
+    }
+}
+
+extension Collection {
+    func choose(_ n: Int) -> Array<Element> {
+        Array(shuffled().prefix(n))
+    }
+}
