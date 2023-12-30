@@ -32,7 +32,7 @@ class PokemonViewController: UIViewController {
         pokemonManager.delegate = self
         imageManager.delegate = self
         createButtons()
-        pokemonManager.fetchPokemonApi()
+        pokemonManager.fetchPokemon()
         labelMessage.text = " "
     }
 
@@ -40,11 +40,46 @@ class PokemonViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         let userAnswer = sender.title(for: .normal)!
         if game.checkAnswer(userAnswer, correctAnswer) {
-            labelMessage.text = "Sí, es un \(userAnswer)"
+            labelMessage.text = "Sí, es un \(userAnswer.capitalized)"
             labelScore.text = "Puntaje: \(game.score)"
             sender.layer.borderColor = UIColor.systemGreen.cgColor
             sender.layer.borderWidth = 2.0
+            let url = URL(string: correctAnswerImage)
+            pokemonImage.kf.setImage(with: url)
+            Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { timer in
+                self.pokemonManager.fetchPokemon()
+                self.labelMessage.text = " "
+                sender.layer.borderWidth = 0
+            }
+        } else {
+            /*labelMessage.text = "NOOO, es un \(correctAnswer.capitalized)"
+            sender.layer.borderColor = UIColor.systemRed.cgColor
+            sender.layer.borderWidth = 2.0
+            let url = URL(string: correctAnswerImage)
+            pokemonImage.kf.setImage(with: url)
+            Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { timer in
+                self.resetGame()
+                sender.layer.borderWidth = 0
+            }*/
+            self.performSegue(withIdentifier: "goToResult", sender: self)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destination = segue.destination as! ResultsViewController
+            destination.pokemonName = correctAnswer
+            destination.pokemonImageURL = correctAnswerImage
+            destination.finalScore = game.score
+            resetGame()
+        }
+    }
+    
+    func resetGame() {
+        self.pokemonManager.fetchPokemon()
+        game.setScore(score: 0)
+        labelScore.text = "Puntaje: \(game.score)"
+        self.labelMessage.text = " "
     }
     
     func createButtons() {

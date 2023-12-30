@@ -16,7 +16,7 @@ struct PokemonManager {
     let pokemonURL: String = "https://pokeapi.co/api/v2/pokemon?limit=898"
     var delegate: PokemonManagerDelegate?
     
-    func fetchPokemonApi() {
+    func fetchPokemon() {
         perfomRequest(with: pokemonURL)
     }
     
